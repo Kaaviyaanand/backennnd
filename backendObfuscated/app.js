@@ -14,18 +14,18 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-// CORS Configuration
+// ✅ CORS Configuration
 const allowedOrigins = [
   'https://homelyhub-co.onrender.com',
-  'https://backend-h8f0.onrender.com' // Update this to your frontend URL when deployed
+  'http://localhost:3000' // useful for local dev, optional
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
+      callback(null, true);
     } else {
-      return callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true
@@ -36,7 +36,7 @@ app.use("/api/v1/rent/listing", propertyRoutes); // Property routes
 app.use("/api/v1/rent/user", userRoutes);        // User routes
 app.use("/api/v1/rent/chat", chatRoutes);        // Chatbot route
 
-// Root Route - fixes "Cannot GET /"
+// Root Route - for testing
 app.get("/", (req, res) => {
   res.send("🎉 Welcome to the HomelyHub API — Backend is Live!");
 });
