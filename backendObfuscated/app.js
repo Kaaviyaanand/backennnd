@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 // CORS Configuration
 const allowedOrigins = [
-  'http://localhost:3000',
+  'https://homelyhub-co.onrender.com',
   'https://backend-h8f0.onrender.com' // Update this to your frontend URL when deployed
 ];
 
