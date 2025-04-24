@@ -13,14 +13,11 @@ if (!DB) {
   process.exit(1);
 }
 
-// Debug: Print a masked version of the URI
+// Mask credentials in log
 console.log("📡 Connecting to MongoDB at:", DB.replace(/:\/\/(.*?):(.*?)@/, '://<user>:<pass>@'));
 
 // Connect to MongoDB
-mongoose.connect(DB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose.connect(DB)
   .then(() => console.log('✅ DB connection successful'))
   .catch((err) => {
     console.error('❌ DB connection error:', err.message);
