@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' }); // Load environment variables
 
 // MongoDB connection string
-const DB = process.env.DATABASE_LOCAL || "mongodb+srv://djroman11221:Akash0515@cluster0.ufh7n8f.mongodb.net/HomelyHub?retryWrites=true&w=majority&appName=Cluster0";
+const DB = process.env.DATABASE_LOCAL || "mongodb+srv://djroman11221:Akash051503@cluster0.ufh7n8f.mongodb.net/HomelyHub?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(DB)
   .then(() => console.log('✅ DB connection successful'))
